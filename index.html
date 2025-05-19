@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #FFFFFF;
+            color: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        .hide-pc {
+            display: block;
+        }
+
+        @media (min-width: 1024px) {
+            .hide-pc {
+                display: none !important;
+            }
+        }
+
+
+        .hide-tablet {
+            display: block;
+        }
+
+        @media (min-width: 600px) and (max-width: 1024px) {
+            .hide-tablet {
+                display: none !important;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+            .hide-mobile {
+                display: none;
+            }
+        }
+
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header img {
+            width: 200px;
+            height: auto;
+        }
+
+        .menu {
+            background-color: black;
+            color: white;
+        }
+
+        .menu_links {
+            display: flex;
+            gap: 0;
+        }
+
+        .menu_links a {
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-right: 1px solid #fff;
+        }
+
+        .menu_links a:last-child {
+            border-right: none;
+        }
+
+        .menu-cta {
+            background-color: white;
+            color: #E4233C !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+
+        /* Estilos del botón hamburguesa */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 1181px) {
+            header img {
+                width: 210px;
+                height: auto;
+            }
+
+
+        }
+
+
+        /* Estilos para pantallas pequeñas */
+        @media (max-width: 1000px) {
+
+            header img {
+                width: 200px;
+                height: auto;
+            }
+
+            .menu {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px;
+                background-color: black;
+                color: white;
+            }
+
+            .menu_links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 60px;
+                background-color: black;
+                padding: 10px;
+                border-radius: 5px;
+                width: 100%;
+                left: 0;
+
+            }
+
+            .menu_links a {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+            }
+
+            .menu_links.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+
+        .hero {
+            border: 2px solid #E4233C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 40px;
+            border-radius: 40px;
+        }
+
+        .img-hero {
+            width: 612px;
+            height: 501px;
+            border-radius: 40px;
+            object-fit: cover;
+        }
+
+        .btn-primary {
+            background-color: #E4233C;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 18px;
+            text-decoration: none;
+            font-weight: medium;
+        }
+
+
+        .btn-primary:hover {
+            background-color: #C41E2F;
+        }
+
+        .text-hero {
+            font-size: 27px;
+            line-height: 1.3;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        .text-red {
+            color: #E4233C;
+        }
+
+        .hero-main {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            max-width: 700px;
+            margin-right: 20px;
+            padding: 20px;
+            height: 100%;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .hero-btns a {
+            padding: 10px 20px;
+            border-radius: 12px;
+        }
+
+        .text-twist {
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            /* gira el texto completamente  */
+        }
+
+        .square {
+            width: 20px;
+            height: 20px;
+            margin-left: 8px;
+        }
+
+        .square-reverse {
+            transform: rotate(-90deg);
+            margin-top: 4px;
+        }
+
+        .btns-hero-main {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            width: 100%;
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column-reverse;
+                align-items: center;
+                margin: 20px;
+            }
+
+            .hero-main {
+                margin-right: 0;
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            .img-hero {
+                width: 100%;
+                height: auto;
+                margin-top: 20px;
+            }
+
+            .btns-hero-main {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .text-twist {
+                writing-mode: horizontal-tb;
+                transform: none;
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            .hero-btns {
+                width: 100%;
+
+            }
+
+            .hero-btns a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+
+            .hero-main {
+
+                padding: 0px;
+            }
+
+            .text-hero {
+                font-size: 24px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            .btn-primary {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .hero-btns a {
+                font-size: 14px;
+            }
+
+
+        }
+
+        /* STATS */
+
+        .stats {
+            padding: 50px 0px;
+            background: linear-gradient(180deg, #ffffff 0%, #e3e3e3 100%);
+            position: relative;
+        }
+
+        .stats-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin: 40px;
+        }
+
+        .stats-text {
+            max-width: 600px;
+            margin-right: 20px;
+        }
+
+        .stats-text h2 {
+            font-size: 44px;
+            margin-bottom: 20px;
+            color: #707070;
+        }
+
+        .stats-text p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #707070;
+        }
+
+        .logo-stats {
+            width: 230px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .stats-image {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .img-stats {
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 1024px) {
+            .stats-info {
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 20px;
+            }
+
+            .cards-container {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .stats-text {
+                max-width: 100%;
+                margin-right: 0;
+            }
+
+            .stats-text h2 {
+                font-size: 32px;
+                margin-bottom: 10px;
+            }
+
+            .stats-image {
+                margin-top: 20px;
+            }
+
+            .img-stats {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stats-text h2 {
+                font-size: 28px;
+            }
+
+            .stats-text p {
+                font-size: 14px;
+            }
+
+            .logo-stats {
+                width: 200px;
+            }
+
+            .img-stats {
+                width: 100%;
+                height: auto;
+            }
+
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+
+        /* CARDS */
+
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border: 2px solid #d9333f;
+            border-radius: 15px;
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card.active {
+            background-color: #d9333f;
+            color: white;
+            height: 300px;
+        }
+
+        .add-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background-color: #222;
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .card-content {
+            text-align: left;
+        }
+
+        .card-content h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .card-content p {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .expanded-card {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border: 2px solid #d9333f;
+            border-radius: 15px;
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .expanded-card .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background-color: #222;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .expanded-card-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .expanded-card-content {
+            flex: 1;
+        }
+
+        .expanded-card-content h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .expanded-card-content p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card {
+                width: 300px;
+                height: 300px;
+            }
+
+            .expanded-card {
+                flex-direction: column;
+                padding: 15px;
+                width: 85%;
+            }
+
+            .expanded-card-image {
+                width: 100%;
+                height: 180px;
+            }
+
+        }
+
+        .bt-left-twist {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            text-orientation: mixed;
+            padding: 45px 16px;
+            font-size: 18px;
+            font-weight: medium;
+            background-color: #E4233C;
+            color: white;
+            border: none;
+            border-radius: 35px 0px 0px 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-left: 2px solid white;
+            border-top: 2px solid white;
+            border-bottom: 2px solid white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            left: 0;
+            top: 60%;
+            z-index: 10;
+        }
+
+
+
+        /* Solutions */
+        .solutions {
+            background-color: #F5F5F5;
+            padding: 50px 0px;
+            text-align: center;
+        }
+
+        .solutions-carousel {
+            position: relative;
+            width: 100%;
+
+        }
+
+        #soluciones .splide__arrow--prev {
+            left: 4rem !important;
+        }
+
+        #soluciones .splide__arrow--next {
+            right: 4rem !important;
+        }
+
+        .solutions-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .solutions-container h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #E4233C;
+        }
+
+        .solutions-card {
+            border: 1.5px solid #E4233C;
+            border-radius: 15px;
+            max-width: 400px;
+            /* display: flex; */
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+            text-align: left;
+            position: relative;
+            display: none;
+            margin: 0 auto 60px;
+        }
+
+        /* Oculta inicialmente */
+        .solutions-card {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        /* Animación de entrada */
+        .solutions-card.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animación de salida */
+        .solutions-card.hide {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+
+        .close-button-solutions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background-color: #222;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .icon-soluciones {
+            width: 50px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .bg-red {
+            background-color: #E4233C;
+            color: white;
+            height: 50%;
+            font-size: 24px;
+            margin-bottom: 20px;
+            position: absolute;
+            top: calc(30% - 25px);
+            left: 0;
+            right: 0;
+            padding: 20px;
+
+        }
+
+        @media screen and (max-width: 764px) {
+            .bg-red {
+                background-color: #E4233C;
+                color: white;
+                height: 80%;
+                font-size: 24px;
+                margin-bottom: 20px;
+                position: absolute;
+                top: 10%;
+                left: 0;
+                right: 0;
+                padding: 20px;
+            }
+
+            .solutions-card {
+                background-color: white;
+
+            }
+
+
+        }
+
+
+
+        .solutions-container p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #555;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .solution-item {
+            background-color: #EAEAEA;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            box-shadow: 3px 3px 18px #00000029;
+            margin: 40px;
+            position: relative;
+        }
+
+        .img-solution {
+            width: -webkit-fill-available;
+            height: auto;
+        }
+
+        .solution-btn {
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #E4233C;
+            color: white;
+            padding: 22px 20px;
+            border-radius: 25px 25px 0px 0px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            width: 90%;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        /* Benefits */
+        .benefits {
+            padding: 50px 0px;
+            text-align: center;
+            background: linear-gradient(180deg, #ffffff 0%, #e3e3e3 100%);
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .benefits-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .benefits-container h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: normal;
+            width: 60%;
+            text-align: left;
+        }
+
+        .text-bold {
+            font-weight: bold;
+        }
+
+        .img-arrow {
+            width: 90px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .benefits-item {
+            background-color: #EAEAEA;
+            border-radius: 15px;
+            height: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            box-shadow: 3px 3px 18px #00000029;
+            margin: 40px;
+            position: relative;
+        }
+
+        .img-dots {
+            width: 40px;
+            height: auto;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .benefits-item p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+            text-align: center;
+            margin-top: 10px;
+            padding: 0 20px;
+        }
+
+        .benefits-item h3 {
+            background-color: #484848;
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 20px;
+            margin-bottom: 10px;
+            width: 100%;
+            height: 130px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 3px 3px 18px #00000029;
+            text-align: center;
+        }
+
+        .next {
+            width: 50px;
+            height: 50px;
+        }
+
+        .back {
+            width: 50px;
+            height: 50px;
+            transform: rotate(180deg);
+        }
+
+        .splide__pagination__page.is-active {
+            background-color: #E4233C;
+            border: 2px solid #E4233C;
+            width: 14px;
+            height: 14px;
+            margin: 0 5px;
+            transform: none;
+        }
+
+        .splide__pagination__page {
+            background-color: #E8E8E8;
+            border: 2px solid #E4233C;
+            width: 14px;
+            height: 14px;
+            margin: 0 5px;
+        }
+
+        .splide__arrow {
+            background-color: transparent;
+        }
+
+        @media screen and (max-width: 764px) {
+            .benefits-container h2 {
+                width: 90%;
+            }
+
+            .benefits-item p {
+                padding-bottom: 80px;
+            }
+
+            .benefits-left {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .benefits-item {
+                width: 90%;
+                height: auto;
+            }
+
+            .img-arrow {
+                width: 40px;
+            }
+
+            .benefits-item {
+                width: 300px;
+                margin: 0 auto;
+                margin-bottom: 30px;
+            }
+
+            .splide__pagination {
+                bottom: -1em;
+            }
+        }
+
+        /* CTA */
+
+        .cta {
+            background-color: #000000;
+            color: white;
+        }
+
+        .cta-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .cta-content {
+            padding: 20px;
+        }
+
+        .cta-content h4 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #555;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+
+        .cta-btns a {
+            width: 70%;
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .cta-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-content {
+                width: 50%;
+            }
+
+            .cta-content h4 {
+                font-size: 28px;
+            }
+
+            .cta-content p {
+                font-size: 16px;
+            }
+
+            .cta-btns a {
+                width: 100%;
+                padding: 15px 0;
+            }
+
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+                padding-bottom: 20px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+            .cta-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-content h4 {
+                font-size: 28px;
+            }
+
+            .cta-content {
+                width: 90%;
+            }
+
+            .cta-content p {
+                font-size: 16px;
+            }
+
+            .cta-btns a {
+                width: 100%;
+                padding: 15px 0;
+            }
+
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+                padding-bottom: 20px;
+            }
+
+            .img-cta-mobile {
+                width: 100%;
+                height: auto;
+                border-radius: 40px;
+                object-fit: cover;
+            }
+
+        }
+
+        /* contact */
+
+        .contact {
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            justify-items: center;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .img-contact {
+            width: 100%;
+            height: auto;
+            border-radius: 40px;
+            object-fit: cover;
+            width: 600px;
+            height: 650px;
+            object-fit: cover;
+        }
+
+        .contact-title {
+            font-size: 34px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #707070;
+        }
+
+        @media (max-width: 1024px) {
+            .contact {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-content,
+            .form-image {
+                width: 100%;
+            }
+
+            .form-image {
+                display: flex;
+
+            }
+
+            .img-contact {
+                width: 70%;
+                height: auto;
+                margin: 0 auto;
+            }
+
+            .contact-title {
+                font-size: 28px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+            .contact {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .img-contact {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* certifications */
+
+        .certifications {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0px;
+            background-color: #1F201E;
+            border-radius: 100px;
+            width: max-content;
+            margin: 0 auto;
+        }
+
+        .certifications-message {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #E4233C;
+        }
+
+        .certifications-image {
+            width: 700px;
+            height: auto;
+            border-radius: 40px;
+            object-fit: cover;
+            margin: 20px;
+        }
+
+        .certifications-message {
+            width: 20%;
+            text-align: left;
+        }
+
+        .text-white-bold {
+            color: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 1170px) {
+            .certifications-message {
+                width: 100%;
+                text-align: center;
+            }
+
+            .certifications-image {
+                width: 450px;
+                height: auto;
+                border-radius: 0;
+            }
+
+            .certifications {
+                flex-direction: column;
+                align-items: center;
+                border-radius: 34px;
+                padding: 20px;
+            }
+        }
+
+
+
+        @media (max-width: 670px) {
+            .certifications-message {
+                width: 100%;
+                text-align: center;
+            }
+
+            .certifications {
+                flex-direction: column;
+                align-items: center;
+                border-radius: 34px;
+                padding: 20px;
+                margin: 20px;
+                width: initial;
+            }
+
+            .certifications-image {
+                width: 320px;
+                height: auto;
+                border-radius: 0;
+            }
+
+        }
+
+
+
+        /* faqs */
+
+        .faqs {
+            border: 2px solid #E4233C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            margin: 0 auto;
+            border-radius: 40px;
+            gap: 40px;
+            width: max-content;
+        }
+
+        .arrow-faq {
+            width: 30px;
+            height: auto;
+        }
+
+        .faqs-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .faqs-title h3 {
+            font-size: 36px;
+            margin-left: 20px;
+            color: #E4233C;
+            font-weight: 600;
+        }
+
+        @media screen and (max-width: 869px) {
+            .faqs-title h3 {
+                font-size: 28px;
+            }
+
+            .faqs {
+                width: 90%;
+                padding: 20px;
+                margin: 0 auto;
+            }
+        }
+
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion__item {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .accordion__header-content {
+
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .accordion__header {
+            padding: 20px 25px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .accordion__header p {
+            padding-bottom: 10px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .arrow-toggle {
+            width: 22px;
+            height: 28px;
+            transition: transform 0.3s ease;
+        }
+
+
+        .btn-toggle {
+            background-color: #000000;
+            color: white;
+            border: none;
+            height: 40px;
+            width: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+
+        .accordion__item .accordion__content {
+            padding: 0 25px;
+            max-height: 0;
+            transition: .5s;
+            overflow: hidden;
+        }
+
+        .arrow-right {
+            transform: rotate(180deg);
+        }
+
+        /* footer */
+
+        footer {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #E4233C;
+            color: white;
+        }
+
+        .logo-footer {
+            width: 200px;
+            height: auto;
+        }
+
+        @media (max-width: 600px) {
+            footer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer div {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <!-- -------- Header -------- -->
+        <header class="menu black">
+            <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Recurso%203%20(2).png" alt="Logo" />
+            <div class="menu_links">
+                <a href="#servicios">Servicios</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#">Vacantes</a>
+                <a href="#contacto" class="menu-cta">
+                    Solicita una propuesta
+
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+
+        <!-- Menu  and dropdown SCRIPT -->
+        <script>
+
+
+
+            document.addEventListener('DOMContentLoaded', () => {
+
+                const hamburger = document.getElementById('hamburger');
+                const menuLinks = document.querySelector('.menu_links');
+
+                hamburger.addEventListener('click', () => {
+                    menuLinks.classList.toggle('show');
+                });
+
+
+
+                const togglers = document.querySelectorAll('[data-toggle]');
+
+                togglers.forEach((btn) => {
+                    btn.addEventListener('click', (e) => {
+                        const selector = e.currentTarget.dataset.toggle;
+                        const block = document.querySelector(`${selector}`);
+                        const image = e.currentTarget.querySelector('.arrow-right');
+                        const accordionItem = e.currentTarget.closest('.accordion__item');
+                        const accordionTitle = accordionItem.querySelector('.accordion__header-text-close, .accordion__header-text-open');
+
+
+                        if (e.currentTarget.classList.contains('active')) {
+                            block.style.maxHeight = '';
+                            image.src = './faq-cerrado.svg';
+                            accordionItem.style.backgroundColor = '#E8E8E8';
+                            accordionTitle.classList.remove('accordion__header-text-open');
+                            accordionTitle.classList.add('accordion__header-text-close');
+
+                        } else {
+                            block.style.maxHeight = block.scrollHeight + 'px';
+                            image.src = './faq-abierto.svg';
+                            accordionItem.style.backgroundColor = '#18202D';
+                            accordionTitle.classList.remove('accordion__header-text-close');
+                            accordionTitle.classList.add('accordion__header-text-open');
+
+                        }
+
+                        e.currentTarget.classList.toggle('active');
+                    });
+                });
+            });
+        </script>
+
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-main">
+
+                <a href="#contacto" class="btn btn-primary hide-mobile">
+                    Solicita una propuesta
+                </a>
+
+                <h1 class="text-hero">
+                    Soluciones integrales para talento masivo: <b> atracción, capacitación, administración y cultura
+                    </b> <span class="text-red">para operaciones masivas.</span>
+                </h1>
+
+                <div class="btns-hero-main">
+
+                    <div class="hide-mobile">
+                        <img src="/square.svg" alt="square" class="square" />
+                        <p class="text-twist hide-mobile">
+                            Soluciones
+                        </p>
+                        <img src="/square.svg" alt="square" class="square square-reverse" />
+
+                    </div>
+
+                    <div class="hero-btns">
+                        <a href="https://www.google.com" class="btn btn-primary">
+                            Reclutamiento y Selección
+                        </a>
+                        <a href="https://www.google.com" class="btn btn-primary">
+                            Capacitación
+                        </a>
+                        <a href="https://www.google.com" class="btn btn-primary">
+                            Administración
+                        </a>
+                        <a href="https://www.google.com" class="btn btn-primary">
+                            Cultura
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Group%204%20(6).png"
+                    alt="Imagen de fondo" class="img-hero">
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats" id="servicios">
+            <div class="stats-info">
+                <div class="stats-text">
+                    <img alt="logo"
+                        src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Recurso%204%20(2).png"
+                        class="logo-stats" />
+                    <h2>Más que reclutamiento</h2>
+                    <p>
+                        <b>Atraemos, capacitamos y gestionamos talento operativo a gran escala. </b>
+                        Nuestra oferta incluye reclutamiento, capacitación, administración y
+                        cultura, con tecnología e inteligencia artificial como pilares clave.
+                    </p>
+                </div>
+                <div class="stats-image">
+                    <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Group%205%20(4).png"
+                        alt="Imagen de fondo" class="img-stats" />
+                </div>
+            </div>
+            <div class="container">
+                <div class="cards-container">
+                    <div class="card" id="card1">
+                        <button class="add-button">+</button>
+                        <div class="card-content">
+                            <h2>10 días</h2>
+                            <p>para cobertura operativa masiva.</p>
+                        </div>
+                    </div>
+
+                    <div class="card" id="card2">
+                        <button class="add-button">+</button>
+                        <div class="card-content">
+                            <h2>+95%</h2>
+                            <p>de efectividad en capacitación con simuladores virtuales.</p>
+                        </div>
+                    </div>
+
+                    <div class="card" id="card3">
+                        <button class="add-button">+</button>
+                        <div class="card-content">
+                            <h2>100%*</h2>
+                            <p>de cumplimiento en normativa REPSE</p>
+                        </div>
+                    </div>
+
+                    <div class="card" id="card4">
+                        <button class="add-button">+</button>
+                        <div class="card-content">
+                            <h2>50%</h2>
+                            <p>de mejora en retención de talento</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <button class="bt-left-twist hide-mobile hide-tablet">
+                Contáctanos
+            </button>
+
+        </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const cards = document.querySelectorAll('.card');
+                let activeCard = null;
+                let currentExpanded = null;
+
+                const expandedCardData = {
+                    card1: {
+                        title: "Reclutamiento y Selección",
+                        image: "https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/reclutamiento.png",
+                        description: "Utilizamos inteligencia artificial y automatización para agilizar el reclutamiento masivo. Cubrimos vacantes en menos tiempo, con talento alineado a tu operación."
+                    },
+                    card2: {
+                        title: "Capacitación",
+                        image: "https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/2148950525.png",
+                        description: "Capacitación inmersiva con IA. Nuestro Simulador Virtual Generativo™ permite entrenar a tus equipos operativos en escenarios reales, sin riesgos."
+                    },
+                    card3: {
+                        title: "Administración",
+                        image: "https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/admin.png",
+                        description: "Somos proveedores de Servicios Especializados (REPSE), cumpliendo al 100% la normatividad y ofreciendo diferentes modelos para la contratación del talento.."
+                    },
+                    card4: {
+                        title: "Cultura",
+                        image: "https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/culture.png",
+                        description: "Fortalece la retención con una lectura precisa del clima laboral, el seguimiento el eNPS y el uso de People AnalyticsTM para transformar datos en acciones efectivas."
+                    }
+                };
+
+                cards.forEach(card => {
+                    const addButton = card.querySelector('.add-button');
+
+                    addButton.addEventListener('click', function () {
+                        const cardId = card.id;
+
+                        // Si ya hay un card activo, desactivarlo y remover su info expandida
+                        if (activeCard && activeCard !== card) {
+                            activeCard.classList.remove('active');
+                            if (currentExpanded) {
+                                currentExpanded.remove();
+                                currentExpanded = null;
+                            }
+                        }
+
+                        // Alternar estado activo del card actual
+                        const isActive = card.classList.toggle('active');
+
+                        if (isActive) {
+                            activeCard = card;
+                            showExpandedCard(cardId, card);
+                        } else {
+                            if (currentExpanded) {
+                                currentExpanded.remove();
+                                currentExpanded = null;
+                            }
+                            activeCard = null;
+                        }
+                    });
+                });
+
+                function showExpandedCard(cardId, referenceCard) {
+                    if (currentExpanded) {
+                        currentExpanded.remove();
+                    }
+
+                    const data = expandedCardData[cardId];
+
+                    const expandedCard = document.createElement('div');
+                    expandedCard.className = 'expanded-card';
+                    expandedCard.innerHTML = `
+            <button class="close-button">X</button>
+            <img src="${data.image}" alt="${data.title}" class="expanded-card-image">
+            <div class="expanded-card-content">
+                <h3>${data.title}</h3>
+                <p>${data.description}</p>
+            </div>
+        `;
+
+                    // Condición para que el card expandido se muestre correctamente solo en dispositivos móviles
+                    if (window.innerWidth <= 768) {
+                        // En móvil, insertar debajo del card clicado
+                        referenceCard.parentNode.insertBefore(expandedCard, referenceCard.nextSibling);
+                        currentExpanded = expandedCard;
+                    } else {
+                        // En PC, se mantiene en el flujo de la fila de cards
+                        const container = referenceCard.parentNode;
+                        container.appendChild(expandedCard);
+                        currentExpanded = expandedCard;
+                    }
+
+                    // Cerrar
+                    const closeButton = expandedCard.querySelector('.close-button');
+                    closeButton.addEventListener('click', function () {
+                        expandedCard.remove();
+                        currentExpanded = null;
+                        if (activeCard) {
+                            activeCard.classList.remove('active');
+                            activeCard = null;
+                        }
+                    });
+                }
+
+                // Hacer que el comportamiento cambie si el tamaño de la pantalla cambia
+                window.addEventListener('resize', function () {
+                    if (currentExpanded && window.innerWidth > 768) {
+                        // En caso de que la pantalla cambie a escritorio, mover el card expandido al final
+                        if (activeCard) {
+                            currentExpanded.remove();
+                            currentExpanded = null;
+                        }
+                    }
+                });
+            });
+
+        </script>
+
+        <!-- Solutions -->
+        <section class="solutions">
+            <div class="solutions-container">
+                <h2>SOLUCIONES</h2>
+                <p>
+                    Desde la atracción hasta la retención, nuestras soluciones combinan tecnología, datos y enfoque
+                    humano para transformar la gestión del talento operativo con impacto real en tu negocio.
+                </p>
+            </div>
+
+
+            <!-- Carousel cards in desktop and tablet -->
+            <div class="splide solutions-carousel hide-mobile" aria-label="Soluciones" id="soluciones">
+
+                <div class="bg-red"></div>
+
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+
+                            <div class="solution-item">
+                                <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__una-mujer-mexicana-en-una-oficina-de-da-usa-una-co__-2.png"
+                                    alt="Imagen de fondo" class="img-solution">
+
+                                <button class="solution-btn" data-solution="reclutamiento">Reclutamiento y
+                                    Selección</button>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="solution-item">
+                                <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__foto-de-una-maestra-mexicana-de-30-aos-en-un-salon__3678.png"
+                                    alt="Imagen de fondo" class="img-solution">
+
+                                <button class="solution-btn" data-solution="capacitacion">Capacitación</button>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="solution-item">
+                                <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__foto-de-una-gerente-mexicana-de-30-aos-en-una-ofic__3679.png"
+                                    alt="Imagen de fondo" class="img-solution">
+
+                                <button class="solution-btn" data-solution="administracion">Administración</button>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="solution-item">
+                                <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__foto-de-una-maestra-mexicana-de-30-aos-en-un-salon__5267.png"
+                                    alt="Imagen de fondo" class="img-solution">
+
+                                <button class="solution-btn" data-solution="cultura">Cultura</button>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <!-- Custom Arrows -->
+                <div class="splide__arrows custom-arrows">
+                    <button class="splide__arrow splide__arrow--prev">
+                        <img src="/arrow.png" alt="Anterior" class="back" />
+                    </button>
+                    <button class="splide__arrow splide__arrow--next">
+                        <img src="arrow.png" alt="Siguiente" class="next" />
+                    </button>
+                </div>
+            </div>
+
+            <!-- Column cards in mobile -->
+            <div class="solutions-carousel hide-tablet hide-pc" aria-label="Soluciones">
+
+                <div class="bg-red"></div>
+
+
+                <div class="solution-wrapper">
+
+                    <div class="solution-item">
+                        <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__una-mujer-mexicana-en-una-oficina-de-da-usa-una-co__-2.png"
+                            alt="Imagen de fondo" class="img-solution">
+
+                        <button class="solution-btn" data-solution="reclutamiento">
+                            Reclutamiento y Selección
+                        </button>
+                    </div>
+                </div>
+                <div class="solution-wrapper">
+                    <div class="solution-item">
+                        <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__foto-de-una-maestra-mexicana-de-30-aos-en-un-salon__3678.png"
+                            alt="Imagen de fondo" class="img-solution">
+
+                        <button class="solution-btn" data-solution="capacitacion">
+                            Capacitación</button>
+                    </div>
+                </div>
+                <div class="solution-wrapper">
+                    <div class="solution-item">
+                        <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__foto-de-una-gerente-mexicana-de-30-aos-en-una-ofic__3679.png"
+                            alt="Imagen de fondo" class="img-solution">
+
+                        <button class="solution-btn" data-solution="administracion">
+                            Administración</button>
+                    </div>
+                </div>
+                <div class="solution-wrapper">
+
+                    <div class="solution-item">
+                        <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__foto-de-una-maestra-mexicana-de-30-aos-en-un-salon__5267.png"
+                            alt="Imagen de fondo" class="img-solution">
+
+                        <button class="solution-btn" data-solution="cultura">
+                            Cultura</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Example of selected card -->
+            <div class="solutions-card">
+
+                <button class="close-button-solutions">X</button>
+
+                <img alt="icono"
+                    src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/PENTAFON-CX-TECHNOLOGY-icons-Omnichannel-Solutions-Social-Media.png"
+                    class="icon-soluciones" />
+
+                <h4>
+                </h4>
+
+                <p>
+                </p>
+            </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const card = document.querySelector(".solutions-card");
+                    const closeBtn = document.querySelector(".close-button-solutions");
+
+                    const cardImg = card.querySelector(".icon-soluciones");
+                    const cardTitle = card.querySelector("h4");
+                    const cardDesc = card.querySelector("p");
+
+                    const solutionsData = {
+                        reclutamiento: {
+                            title: "Reclutamiento y Selección",
+                            img: "https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/PENTAFON-CX-TECHNOLOGY-icons-Omnichannel-Solutions-Social-Media.png",
+                            description: "Atraemos talento operativo en alto volumen para sectores como retail, financiero, logística y contact centers. Utilizamos tecnología automatizada, inteligencia artificial generativa y análisis predictivo para identificar, evaluar y conectar perfiles calificados de forma rápida y precisa. Con esto, reducimos tiempos y costos de reclutamiento, asegurando una mejor compatibilidad entre el talento y tu operación."
+                        },
+                        capacitacion: {
+                            title: "Capacitación",
+                            img: "https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/PENTAFON-CX-TECHNOLOGY-icons-Omnichannel-Solutions-Social-Media.png",
+                            description: "Capacitamos talento operativo en sectores como contact centers, financiero, retail y logística, con soluciones a la medida de tu operación. Aplicamos capacitación inmersiva, e-learning y contenidos generados con inteligencia artificial para adaptarse a cada rol. Este enfoque acelera el aprendizaje y puede incrementar la productividad hasta en un 25% desde los primeros días."
+                        },
+                        administracion: {
+                            title: "Administración",
+                            img: "https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/PENTAFON-CX-TECHNOLOGY-icons-Omnichannel-Solutions-Social-Media.png",
+                            description: "Nos encargamos de las tareas administrativas de tu talento para que tú te enfoques en el crecimiento de tu negocio. Gestionamos nómina, beneficios y riesgos laborales, reduciendo carga operativa y costos. Al externalizar estas funciones y hacer uso de REPSE, cumples con normativa y puedes disminuir tus gastos administrativos y liberar recursos para áreas estratégicas."
+                        },
+                        cultura: {
+                            title: "Cultura",
+                            img: "https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/PENTAFON-CX-TECHNOLOGY-icons-Omnichannel-Solutions-Social-Media.png",
+                            description: "Fortalecemos la cultura en equipos operativos, incluso en entornos de alta rotación. Diseñamos canales de comunicación interna, mediciones y herramientas de retroalimentación que promueven pertenencia y compromiso. Este enfoque puede aumentar hasta en un 40% el sentido de pertenencia y reducir la rotación asociada a falta de cultura organizacional."
+                        }
+                    };
+
+                    function attachButtonEvents() {
+                        const buttons = document.querySelectorAll(".solution-btn");
+
+                        buttons.forEach(button => {
+                            button.removeEventListener("click", handleButtonClick); // Evitar duplicados
+                            button.addEventListener("click", handleButtonClick);
+                        });
+                    }
+
+                    function handleButtonClick(event) {
+                        const button = event.currentTarget;
+                        const key = button.getAttribute("data-solution");
+                        const data = solutionsData[key];
+
+                        if (data) {
+                            // Actualiza contenido
+                            cardImg.src = data.img;
+                            cardTitle.textContent = data.title;
+                            cardDesc.textContent = data.description;
+
+                            // Mover card debajo del botón clickeado solo en mobile
+                            if (window.innerWidth < 768) {
+                                const wrapper = button.closest('.solution-wrapper');
+                                wrapper.appendChild(card);
+                            }
+
+                            // Mostrar tarjeta
+                            card.style.display = "flex";
+                            card.classList.remove("hide");
+
+                            // Forzar reflow
+                            void card.offsetWidth;
+                            card.classList.add("show");
+                        }
+                    }
+
+                    closeBtn.addEventListener("click", () => {
+                        card.classList.remove("show");
+                        card.classList.add("hide");
+
+                        setTimeout(() => {
+                            card.style.display = "none";
+                        }, 400);
+                    });
+
+                    // Inicializar carrusel
+                    const splide = new Splide('#soluciones', {
+                        type: 'loop',
+                        perPage: 3,
+                        perMove: 1,
+                        autoplay: false,
+                        interval: 3000,
+                        arrows: true,
+                        pauseOnHover: true,
+                        pagination: false,
+                    });
+
+                    splide.on('mounted', attachButtonEvents);
+                    splide.on('moved', attachButtonEvents); // Reasigna eventos al moverse
+
+                    splide.mount();
+                });
+            </script>
+
+
+
+
+            <a href="https://www.google.com" class="btn btn-primary " style="margin: 60px auto; padding: 15px 55px;">
+                Contáctanos
+            </a>
+        </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Splide('#soluciones', {
+                    type: 'loop',
+                    perPage: 3,
+                    perMove: 1,
+                    autoplay: false,
+                    interval: 3000,
+                    arrows: true,
+                    pauseOnHover: true,
+                    pagination: false,
+                    breakpoints: {
+                        1310: {
+                            perPage: 3,
+                        },
+                        1024: {
+                            perPage: 2,
+                        },
+                        774: {
+                            perPage: 1,
+                        },
+                    },
+                }).mount();
+            });
+        </script>
+
+
+        <!-- Benefits -->
+        <section class="benefits" id="beneficios">
+            <div class="benefits-container">
+                <div class="benefits-left">
+                    <img alt="arrow" src="/arrow.png" class="img-arrow" />
+                    <h2>
+                        Beneficios medibles,
+                        <span class="text-red text-bold">impacto real</span>
+                    </h2>
+                </div>
+                <div>
+                    <a href="#contacto" class="btn btn-primary hide-mobile hide-tablet" style="padding: 15px 55px">
+                        Solicita una demo
+                    </a>
+                </div>
+            </div>
+
+            <div class="splide benefits-carousel" aria-label="Beneficios" id="beneficios-carousel">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="benefits-item">
+                                <h3>Cobertura acelerada con IA</h3>
+                                <p>Logramos una cobertura de <b>vacantes operativas masivas en menos de 10 días</b>
+                                    gracias a algoritmos de selección inteligente y automatización del proceso.</p>
+                                <img alt="dots" src="/circle.svg" class="img-dots" />
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="benefits-item">
+                                <h3>Reducción de costos de reclutamiento masivo hasta en 35%</h3>
+                                <p>La optimización de procesos con herramientas tecnológicas <b>reduce gastos en
+                                        reclutamiento masivo</b>, rotación y entrenamiento desde el primer mes.</p>
+                                <img alt="dots" src="/circle.svg" class="img-dots" />
+
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="benefits-item">
+                                <h3>Reclutamiento masivo con Inteligencia Artificial</h3>
+                                <p>Combinamos nuestro <b>Entrevistador Virtual Generativo(™)</b> con análisis predictivo
+                                    de datos y pruebas psicométricas para asegurar al candidato ideal, incluso en
+                                    contrataciones de gran volumen.</p>
+                                <img alt="dots" src="/circle.svg" class="img-dots" />
+
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="benefits-item">
+                                <h3>Mapas de calor para ubicación estratégica de talento</h3>
+                                <p>Identificamos zonas con mayor afinidad al perfil y cercanía al centro de trabajo, lo
+                                    que <b>mejora la asistencia y permanencia</b>.</p>
+                                <img alt="dots" src="/circle.svg" class="img-dots" />
+
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="benefits-item">
+                                <h3>Mapas de calor para ubicación estratégica de talento</h3>
+                                <p>Identificamos zonas con mayor afinidad al perfil y cercanía al centro de trabajo, lo
+                                    que <b>mejora la asistencia y permanencia</b>.</p>
+                                <img alt="dots" src="/circle.svg" class="img-dots" />
+
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="benefits-item">
+                                <h3>Mapas de calor para ubicación estratégica de talento</h3>
+                                <p>Identificamos zonas con mayor afinidad al perfil y cercanía al centro de trabajo, lo
+                                    que <b>mejora la asistencia y permanencia</b>.</p>
+                                <img alt="dots" src="/circle.svg" class="img-dots" />
+
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="benefits-item">
+                                <h3>Mapas de calor para ubicación estratégica de talento</h3>
+                                <p>Identificamos zonas con mayor afinidad al perfil y cercanía al centro de trabajo, lo
+                                    que <b>mejora la asistencia y permanencia</b>.</p>
+                                <img alt="dots" src="/circle.svg" class="img-dots" />
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Custom Arrows -->
+                <div class="splide__arrows custom-arrows">
+                    <button class="splide__arrow splide__arrow--prev">
+                        <img src="/arrow.png" alt="Anterior" class="back" />
+                    </button>
+                    <button class="splide__arrow splide__arrow--next">
+                        <img src="arrow.png" alt="Siguiente" class="next" />
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Splide('#beneficios-carousel', {
+                    type: 'loop',
+                    perPage: 4,
+                    perMove: 1,
+                    autoplay: true,
+                    interval: 3000,
+                    arrows: true,
+                    pauseOnHover: true,
+                    breakpoints: {
+                        1310: {
+                            perPage: 2,
+                        },
+                        1024: {
+                            perPage: 1,
+                        },
+                        774: {
+                            perPage: 1,
+                        },
+                    },
+                }).mount();
+            });
+        </script>
+
+        <!-- cta -->
+        <section class="cta">
+            <div class="cta-container">
+
+                <div>
+                    <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Captura%20de%20pantalla%202025-05-16%20a%20la(s)%2012.59.05.png"
+                        alt="Imagen de fondo" class="img-cta hide-mobile ">
+
+                    <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Captura%20de%20pantalla%202025-05-16%20a%20la(s)%2015.45.32.png"
+                        alt="Imagen de fondo" class="img-cta-mobile hide-pc hide-tablet ">
+                </div>
+
+                <div class="cta-content">
+                    <h4> <b>Conoce nuestras soluciones </b> y conecta con el Talento que necesita tu empresa</h4>
+                    <div class="cta-btns">
+                        <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+                        <a href="https://www.google.com" class="btn btn-primary">Llamanos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contacto">
+
+            <div class="form-image">
+                <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Captura%20de%20pantalla%202025-05-16%20a%20la(s)%2013.59.45.png"
+                    alt="Imagen de fondo" class="img-contact">
+            </div>
+
+            <div class="form-content">
+                <p class="contact-title hide-mobile">
+                    Déjanos tus datos y te brindamos una asesoría de tus vacantes <span class="text-red"> sin costo.
+                    </span>
+                </p>
+                <p class="contact-title hide-tablet hide-pc">
+                    Contáctanos
+                </p>
+            </div>
+
+        </section>
+
+
+
+        <!-- FAQs -->
+        <section class="faqs">
+
+            <div class="faqs-title">
+
+                <img alt="Arrow" src="/arrow.png" class="arrow-faq" />
+                <h3>
+                    Preguntas frecuentes
+                </h3>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion__item">
+                    <div class="accordion__header" data-toggle="#faq1">
+                        <div class="accordion__header-content">
+                            <img src="/arrow.png" class="arrow-toggle hide-mobile">
+                            <p>
+                                ¿Cómo se valida el perfil del candidato?
+                            </p>
+                        </div>
+
+                        <button class="btn-toggle">
+                            +
+                        </button>
+                    </div>
+                    <div class="accordion__content" id="faq1">
+                        <p>
+                            Realizamos un perfilamiento por competencias con nuestro Entrevistador Virtual Genera
+
+                            vo(TM).
+
+                            De manera previa, conocemos su estatus en buró laboral, legal y judicial. Y si lo requieres,
+                            también validamos el comportamiento é
+
+                            co de tus futuros empleados.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion__item">
+                    <div class="accordion__header" data-toggle="#faq2">
+                        <div class="accordion__header-content">
+
+                            <img src="/arrow.png" class="arrow-toggle hide-mobile">
+                            <p>
+                                ¿Qué pasa si no tengo presencia legal en México?
+                            </p>
+                        </div>
+                        <button class="btn-toggle">
+                            +
+                        </button>
+                    </div>
+                    <div class="accordion__content" id="faq2">
+                        <p>
+                            Somos proveedores de Servicios Especializados REPSE, por tanto te apoyamos para cumplir con
+                            la norma
+
+                            va correspondiente.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion__item">
+                    <div class="accordion__header" data-toggle="#faq3">
+                        <div class="accordion__header-content">
+                            <img src="/arrow.png" class="arrow-toggle hide-mobile">
+                            <p>
+                                ¿La capacitación es presencial o virtual?
+                            </p>
+                        </div>
+
+                        <button class="btn-toggle">
+                            +
+                        </button>
+                    </div>
+                    <div class="accordion__content" id="faq3">
+                        <p>
+                            Podemos adecuarnos, te brindamos la opción de realizar el entrenamiento a través de Penta
+                            Academy(TM) nuestro LMS, o bien, nuestro equipo de formadores certificados pueden diseñar e
+                            impartir los cursos en sitio.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const togglers = document.querySelectorAll('[data-toggle]');
+
+                togglers.forEach((header) => {
+                    header.addEventListener('click', (e) => {
+                        const selector = header.dataset.toggle;
+                        const content = document.querySelector(selector);
+                        const img = header.querySelector('.arrow-toggle');
+                        const btn = header.querySelector('.btn-toggle');
+
+                        const isActive = header.classList.contains('active');
+
+                        // Altura con padding y bordes incluidos
+                        const paddingAndBorderHeight = 44; // 20+20 padding + 2+2 border
+
+                        content.style.maxHeight = isActive ? '' : (content.scrollHeight + paddingAndBorderHeight) + 'px';
+
+                        // Bordes y espaciado
+                        if (isActive) {
+                            content.style.borderTop = '';
+                            content.style.borderBottom = '';
+                            content.style.padding = '';
+                            content.style.marginTop = '';
+                        } else {
+                            content.style.borderTop = '2px solid black';
+                            content.style.borderBottom = '2px solid #E4233C';
+                            content.style.padding = '20px 25px';
+                            content.style.marginTop = '10px';
+                        }
+
+                        // Rotar la flecha
+                        img.style.transform = isActive ? 'rotate(0deg)' : 'rotate(90deg)';
+
+                        // Cambiar texto del botón
+                        btn.textContent = isActive ? '+' : '−';
+
+                        // Cambiar clase activo
+                        header.classList.toggle('active');
+                    });
+                });
+            });
+        </script>
+
+
+        <div style="height: 60px;"></div>
+
+
+        <!-- Certifications -->
+        <section class="certifications">
+            <p class="certifications-message">
+                Certificaciones
+                <span class="text-white-bold">
+                    de clase mundial
+                </span>
+            </p>
+
+            <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Captura%20de%20pantalla%202025-05-16%20a%20la(s)%2014.14.11.png"
+                alt="Certificaciones" class="certifications-image hide-mobile">
+            <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Captura%20de%20pantalla%202025-05-16%20a%20la(s)%2015.59.22.png"
+                alt="Certificaciones" class="certifications-image hide-pc hide-tablet">
+        </section>
+
+        <!-- Footer -->
+        <footer>
+
+            <div>
+                <p>
+                    Av. Thiers 251, Anzures, Miguel Hidalgo, 11590 Ciudad de México, CDMX
+                </p>
+                <p>
+                    ® 2025 PENTAFON, todos los derechos reservados.
+                </p>
+            </div>
+
+            <div>
+                <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Recurso%202%20(2).png" alt="logo"
+                    class="logo-footer" />
+            </div>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- Glider.js Script -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            new Glider(document.querySelector('.glider'), {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                draggable: true,
+                scrollLock: true,
+                rewind: true,
+                duration: 1.5,
+                autoplay: true,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 799,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 4,
+                        }
+                    }
+                ]
+            });
+
+            // Auto loop (manual approach since Glider.js has no native autoplay)
+            setInterval(() => {
+                const glider = document.querySelector('.glider')._glider;
+                glider.scrollItem(glider.slide + 1);
+            }, 3000);
+        });
+    </script> -->
+
+</body>
+
+</html>
