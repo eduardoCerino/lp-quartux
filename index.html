@@ -690,11 +690,11 @@
         }
 
         #soluciones .splide__arrow--prev {
-            left: 4rem !important;
+            left: 8vw !important;
         }
 
         #soluciones .splide__arrow--next {
-            right: 4rem !important;
+            right: 8vw !important;
         }
 
         .solutions-container {
@@ -725,7 +725,7 @@
             margin: 0 auto 60px;
         }
 
-        
+
 
         /* Oculta inicialmente */
         .solutions-card {
@@ -805,6 +805,7 @@
 
             .solutions-card {
                 background-color: white;
+                width: 90%;
 
             }
 
@@ -829,7 +830,7 @@
             justify-content: flex-start;
             align-items: center;
             box-shadow: 3px 3px 18px #00000029;
-            margin: 40px;
+            margin: 40px auto;
             position: relative;
         }
 
@@ -979,7 +980,24 @@
             background-color: transparent;
         }
 
+        @media screen and (max-width: 1024px) {
+            .solution-item {
+                margin: 30px auto;
+            }
+
+        }
+
         @media screen and (max-width: 764px) {
+
+            .solution-item {
+                margin: 30px auto;
+                width: 90%;
+                height: auto;
+
+            }
+
+
+
             .benefits-container h2 {
                 width: 90%;
             }
@@ -2126,12 +2144,14 @@
             </script>
 
 
+            <div style="height: 50px;"></div>  
 
-            <a href="https://www.google.com" class="btn btn-primary  lato"
+            <a href="#contacto" class="btn btn-primary  lato"
                 style="margin: 60px auto; padding: 15px 55px;">
-                Contáctanos
+                Contáctanos 
             </a>
         </section>
+
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
@@ -2146,12 +2166,12 @@
                     pagination: false,
                     breakpoints: {
                         1310: {
-                            perPage: 3,
+                            perPage: 2,
                         },
                         1024: {
                             perPage: 2,
                         },
-                        774: {
+                        913: {
                             perPage: 1,
                         },
                     },
