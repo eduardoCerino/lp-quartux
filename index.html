@@ -19,23 +19,38 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        .flexo {
-            font-family: 'Open Sans', sans-serif;
-        }
 
-        .flexo-bold {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: bold;
-        }
-
-        .flexo-light {
-            font-family: 'Open Sans', sans-serif;
+        /* Flexo Light */
+        @font-face {
+            font-family: 'Flexo';
+            src: url('https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Fonts/Flexo-Light.woff2') format('woff2');
             font-weight: 300;
+            font-style: normal;
         }
 
-        .flexo-medium {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 500;
+        @font-face {
+            font-family: 'Flexo';
+            src: url('https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Fonts/Flexo-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* Flexo Bold */
+        @font-face {
+            font-family: 'Flexo';
+            src: url('https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Fonts/Flexo-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+
+
+        .flexo {
+            font-family: 'Flexo', sans-serif;
         }
 
         .lato {
@@ -1576,8 +1591,9 @@
                 </a>
 
                 <h1 class="text-hero flexo ">
-                    Soluciones integrales para talento masivo: <b> atracción, capacitación, administración y cultura
-                    </b> <span class="text-red">para operaciones masivas.</span>
+                    Soluciones integrales para talento masivo: <b class="flexo"> atracción, capacitación, administración
+                        y cultura
+                    </b> <span class="text-red flexo">para operaciones masivas.</span>
                 </h1>
 
                 <div class="btns-hero-main">
@@ -1833,7 +1849,7 @@
                                     <div class="flip-card-front">
                                         <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__the-style-is-candid-image-photography-with-natural__55408.png"
                                             alt="Imagen de fondo" class="img-solution" />
-                                        <button class="solution-btn lato" data-solution="reclutamiento">Reclutamiento y
+                                        <button class="solution-btn flexo" data-solution="reclutamiento">Reclutamiento y
                                             Selección</button>
                                     </div>
                                     <div class="flip-card-back">
@@ -1852,7 +1868,7 @@
                                     <div class="flip-card-front">
                                         <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__foto-de-una-maestra-mexicana-de-30-aos-en-un-salon__3678.png"
                                             alt="Imagen de fondo" class="img-solution" />
-                                        <button class="solution-btn lato"
+                                        <button class="solution-btn flexo"
                                             data-solution="capacitacion">Capacitación</button>
 
                                     </div>
@@ -1873,7 +1889,7 @@
                                     <div class="flip-card-front">
                                         <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__the-style-is-candid-image-photography-with-natural__55407.png"
                                             alt="Imagen de fondo" class="img-solution" />
-                                        <button class="solution-btn lato"
+                                        <button class="solution-btn flexo"
                                             data-solution="administracion">Administración</button>
 
                                     </div>
@@ -1893,7 +1909,7 @@
                                     <div class="flip-card-front">
                                         <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__foto-de-una-maestra-mexicana-de-30-aos-en-un-salon__5267.png"
                                             alt="Imagen de fondo" class="img-solution" />
-                                        <button class="solution-btn lato" data-solution="cultura">Cultura</button>
+                                        <button class="solution-btn flexo" data-solution="cultura">Cultura</button>
 
                                     </div>
                                     <div class="flip-card-back">
@@ -1935,7 +1951,7 @@
                         <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__una-mujer-mexicana-en-una-oficina-de-da-usa-una-co__-2.png"
                             alt="Imagen de fondo" class="img-solution">
 
-                        <button class="solution-btn lato " data-solution="reclutamiento" id="reclutamiento">
+                        <button class="solution-btn flexo " data-solution="reclutamiento" id="reclutamiento">
                             Reclutamiento y Selección
                         </button>
                     </div>
@@ -1945,7 +1961,7 @@
                         <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__foto-de-una-maestra-mexicana-de-30-aos-en-un-salon__3678.png"
                             alt="Imagen de fondo" class="img-solution">
 
-                        <button class="solution-btn lato" data-solution="capacitacion" id="capacitacion">
+                        <button class="solution-btn flexo" data-solution="capacitacion" id="capacitacion">
                             Capacitación</button>
                     </div>
                 </div>
@@ -1954,7 +1970,7 @@
                         <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__foto-de-una-gerente-mexicana-de-30-aos-en-una-ofic__3679.png"
                             alt="Imagen de fondo" class="img-solution">
 
-                        <button class="solution-btn lato" data-solution="administracion" id="administracion">
+                        <button class="solution-btn flexo" data-solution="administracion" id="administracion">
                             Administración</button>
                     </div>
                 </div>
@@ -1964,7 +1980,7 @@
                         <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/freepik__foto-de-una-maestra-mexicana-de-30-aos-en-un-salon__5267.png"
                             alt="Imagen de fondo" class="img-solution">
 
-                        <button class="solution-btn lato" data-solution="cultura" id="cultura">
+                        <button class="solution-btn flexo" data-solution="cultura" id="cultura">
                             Cultura</button>
                     </div>
                 </div>
@@ -2144,11 +2160,10 @@
             </script>
 
 
-            <div style="height: 50px;"></div>  
+            <div style="height: 50px;"></div>
 
-            <a href="#contacto" class="btn btn-primary  lato"
-                style="margin: 60px auto; padding: 15px 55px;">
-                Contáctanos 
+            <a href="#contacto" class="btn btn-primary  lato" style="margin: 60px auto; padding: 15px 55px;">
+                Contáctanos
             </a>
         </section>
 
@@ -2188,7 +2203,7 @@
                         class="img-arrow" />
                     <h2 class="flexo">
                         Beneficios medibles,
-                        <span class="text-red text-bold">impacto real</span>
+                        <span class="text-red text-bold flexo">impacto real</span>
                     </h2>
                 </div>
                 <div>
@@ -2340,7 +2355,8 @@
                 </div>
 
                 <div class="cta-content">
-                    <h4 class="flexo"> <b>Conoce nuestras soluciones </b> y conecta con el Talento que necesita tu
+                    <h4 class="flexo"> <b class="flexo">Conoce nuestras soluciones </b> y conecta con el Talento que
+                        necesita tu
                         empresa</h4>
                     <div class="cta-btns">
                         <a href="#contacto" class="btn btn-primary">Contáctanos</a>
