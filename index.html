@@ -1504,6 +1504,99 @@
             align-items: flex-start;
             text-align: left;
         }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            border: 1px solid #E4233C;
+            border-radius: 2px;
+            padding: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #707070;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+            appearance: none;
+            /* Oculta el estilo nativo */
+            -webkit-appearance: none;
+            /* Safari */
+            -moz-appearance: none;
+            /* Firefox */
+            width: 16px !important;
+            height: 16px;
+            border: 1px solid #E4233C;
+            border-radius: 2px;
+            outline-offset: 1px;
+            background-color: white;
+            position: relative;
+        }
+
+        input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            background-color: #E4233C;
+            border-radius: 2px;
+            box-shadow: inset 0 0 0 2px white;
+            transform: translate(-50%, -50%);
+        }
+
+
+        .hs-form-required {
+            color: #E4233C;
+        }
+
+
+        li {
+            list-style: none;
+        }
+
+        .hs-button {
+            background-color: #E4233C;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hs-button:hover {
+            background-color: #000000;
+        }
+
+        .hs-error-msg {
+            display: none;
+        }
+
+        .hs-main-font-element{
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            color: #707070;
+            margin-top: 12px;
+        }
+
+
+        .hs_error_rollup {
+            margin-top: 12px;
+
+        }
+
+
     </style>
 
 </head>
@@ -2379,9 +2472,20 @@
                     Déjanos tus datos y te brindamos una asesoría de tus vacantes <span class="text-red"> sin costo.
                     </span>
                 </p>
-                <p class="contact-title hide-tablet hide-pc">
+                <p class="contact-title hide-tablet hide-pc flexo">
                     Contáctanos
                 </p>
+
+                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+                <script>
+                    hbspt.forms.create({
+                        portalId: "7462595",
+                        formId: "3664b227-333b-40ab-a60a-a36804cc7229",
+                        region: "na1"
+                    });
+                </script>
+
+
             </div>
 
         </section>
