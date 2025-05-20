@@ -559,6 +559,11 @@
             align-items: center;
             justify-content: center;
             z-index: 10;
+            transition: background-color 0.3s;
+        }
+
+        .add-button:hover {
+            background-color: #444;
         }
 
         .card-content {
@@ -872,7 +877,23 @@
             width: 90%;
             border: none;
             cursor: pointer;
+            transition: all 0.3s ease;
+            /* Suaviza todos los cambios */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            /* Sombra sutil */
         }
+
+        /* Hover mejorado */
+        .solution-btn:hover {
+            background-color: #000000;
+            color: #ffffff;
+            padding-top: 32px;
+            /* Efecto visual de expansión vertical */
+            padding-bottom: 32px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            /* Más elevación al hacer hover */
+        }
+
 
 
         /* Benefits */
@@ -929,6 +950,8 @@
             margin: 40px;
             position: relative;
         }
+
+
 
         .img-dots {
             width: 40px;
@@ -1254,7 +1277,6 @@
         .certifications-image {
             width: 700px;
             height: auto;
-            border-radius: 40px;
             object-fit: cover;
             margin: 20px;
         }
@@ -1583,7 +1605,7 @@
             display: none;
         }
 
-        .hs-main-font-element{
+        .hs-main-font-element {
             font-family: 'Lato', sans-serif;
             font-weight: 400;
             color: #707070;
@@ -1596,7 +1618,9 @@
 
         }
 
-
+        .hs-form-booleancheckbox {
+            margin-top: 20px;
+        }
     </style>
 
 </head>
@@ -1609,7 +1633,7 @@
         <header class="menu black">
             <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Recurso%203%20(2).png" alt="Logo" />
             <div class="menu_links">
-                <a href="#servicios">Servicios</a>
+                <a href="#soluciones">Soluciones</a>
                 <a href="#beneficios">Beneficios</a>
                 <a href="https://www.pentafon.com/talento-penta
                 fon" target="_blank">Vacantes</a>
@@ -1780,7 +1804,7 @@
                         <button class="add-button">+</button>
                         <div class="card-content">
                             <h2 class="flexo">100%*</h2>
-                            <p class="lato">de cumplimiento en normativa REPSE</p>
+                            <p class="lato">de cumplimiento en normativa REPSE.</p>
                         </div>
                     </div>
 
@@ -1788,7 +1812,7 @@
                         <button class="add-button">+</button>
                         <div class="card-content">
                             <h2 class="flexo">50%</h2>
-                            <p class="lato">de mejora en retención de talento</p>
+                            <p class="lato">de mejora en retención de talento.</p>
                         </div>
                     </div>
                 </div>
@@ -1796,9 +1820,9 @@
 
             </div>
 
-            <button class="bt-left-twist hide-mobile hide-tablet">
+            <a class="bt-left-twist hide-mobile hide-tablet" href="#contacto" style="text-decoration: none;">
                 Contáctanos
-            </button>
+            </a>
 
         </section>
 
@@ -1822,12 +1846,12 @@
                     card3: {
                         title: "Administración",
                         image: "https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/admin.png",
-                        description: "Somos proveedores de Servicios Especializados (REPSE), cumpliendo al 100% la normatividad y ofreciendo diferentes modelos para la contratación del talento.."
+                        description: "Somos proveedores de Servicios Especializados (REPSE), cumpliendo al 100% la normatividad y ofreciendo diferentes modelos para la contratación del talento."
                     },
                     card4: {
                         title: "Cultura",
                         image: "https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/culture.png",
-                        description: "Fortalece la retención con una lectura precisa del clima laboral, el seguimiento el eNPS y el uso de People AnalyticsTM para transformar datos en acciones efectivas."
+                        description: "Fortalece la retención con una lectura precisa del clima laboral, el seguimiento el eNPS y el uso de People Analytics™ para transformar datos en acciones efectivas."
                     }
                 };
 
@@ -2310,7 +2334,7 @@
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="splide__slide">
-                            <div class="benefits-item">
+                            <div class="benefits-item" style="background-color: #EAEAEA;">
                                 <h3 class="flexo">Cobertura acelerada con IA</h3>
                                 <p class="lato">Logramos una cobertura de <b>vacantes operativas masivas en menos de 10
                                         días</b>
@@ -2321,7 +2345,7 @@
                             </div>
                         </li>
                         <li class="splide__slide">
-                            <div class="benefits-item">
+                            <div class="benefits-item" style="background-color: #F4F4F4;">
                                 <h3 class="flexo">Reducción de costos de reclutamiento masivo hasta en 35%</h3>
                                 <p class="lato">La optimización de procesos con herramientas tecnológicas <b>reduce
                                         gastos en
@@ -2333,9 +2357,9 @@
                             </div>
                         </li>
                         <li class="splide__slide">
-                            <div class="benefits-item">
+                            <div class="benefits-item" style="background-color: #EAEAEA;">
                                 <h3 class="flexo">Reclutamiento masivo con Inteligencia Artificial</h3>
-                                <p class="lato">Combinamos nuestro <b>Entrevistador Virtual Generativo(™)</b> con
+                                <p class="lato">Combinamos nuestro <b>Entrevistador Virtual Generativo™</b> con
                                     análisis predictivo
                                     de datos y pruebas psicométricas para asegurar al candidato ideal, incluso en
                                     contrataciones de gran volumen.</p>
@@ -2346,11 +2370,60 @@
                             </div>
                         </li>
                         <li class="splide__slide">
-                            <div class="benefits-item">
+                            <div class="benefits-item" style="background-color: #F4F4F4;">
                                 <h3 class="flexo">Mapas de calor para ubicación estratégica de talento</h3>
                                 <p class="lato">Identificamos zonas con mayor afinidad al perfil y cercanía al centro de
                                     trabajo, lo
                                     que <b>mejora la asistencia y permanencia</b>.</p>
+                                <img alt="dots"
+                                    src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/circle.svg"
+                                    class="img-dots" />
+
+                            </div>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="benefits-item" style="background-color: #F4F4F4;">
+                                <h3 class="flexo">Simuladores virtuales con +95% de efectividad formativa </h3>
+                                <p class="lato">Entrena a tu equipo con <b>nuestro Simulador Virtual Generativo™ </b>,
+                                    con escenarios reales, sin riesgos para la operación, y con métricas que garantizan
+                                    el aprendizaje.
+                                </p>
+
+                                <img alt="dots"
+                                    src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/circle.svg"
+                                    class="img-dots" />
+
+                            </div>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="benefits-item" style="background-color: #F4F4F4;">
+                                <h3 class="flexo">
+                                    Capacitación automatizada desde el día uno
+                                </h3>
+                                <p class="lato">
+                                    Con <b>Penta Academy™</b> (Plataforma LMS) y con apoyo de nuestros formadores,
+                                    nuestros programas en línea aseguran <b> capacitación ágil, efectiva y escalable
+                                    </b>.
+                                </p>
+
+                                <img alt="dots"
+                                    src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/circle.svg"
+                                    class="img-dots" />
+
+                            </div>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="benefits-item" style="background-color: #F4F4F4;">
+                                <h3 class="flexo">
+                                    Da voz y atención a tus empleados, mejorando su pertenencia
+                                </h3>
+                                <p class="lato">
+                                    Con <b> HR Connect™</b>, el <b> omnicanal de comunicación con el colaborador </b>, brinda atención permanente; resuelve dudas y situaciones generadas en tu operación, obtén adicional, información para tomar decisiones preventivas.
+                                </p>
+
                                 <img alt="dots"
                                     src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/circle.svg"
                                     class="img-dots" />
@@ -2358,41 +2431,23 @@
                             </div>
                         </li>
                         <li class="splide__slide">
-                            <div class="benefits-item">
-                                <h3 class="flexo">Mapas de calor para ubicación estratégica de talento</h3>
-                                <p class="lato">Identificamos zonas con mayor afinidad al perfil y cercanía al centro de
-                                    trabajo, lo
-                                    que <b>mejora la asistencia y permanencia</b>.</p>
+                            <div class="benefits-item" style="background-color: #F4F4F4;">
+                                <h3 class="flexo">
+                                    Mide e incrementa tus promotores
+
+                                </h3>
+                                <p class="lato">
+                                    <b>>HR Insigth™ </b>, es nuestra solución avanzada que te permite <b> evaluar de manera efectiva el ambiente de trabajo </b>, identificar áreas de mejora y promover una cultura organizacional positiva.
+                                </p>
+
                                 <img alt="dots"
                                     src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/circle.svg"
                                     class="img-dots" />
 
                             </div>
                         </li>
-                        <li class="splide__slide">
-                            <div class="benefits-item">
-                                <h3 class="flexo">Mapas de calor para ubicación estratégica de talento</h3>
-                                <p class="lato">Identificamos zonas con mayor afinidad al perfil y cercanía al centro de
-                                    trabajo, lo
-                                    que <b>mejora la asistencia y permanencia</b>.</p>
-                                <img alt="dots"
-                                    src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/circle.svg"
-                                    class="img-dots" />
 
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="benefits-item">
-                                <h3 class="flexo">Mapas de calor para ubicación estratégica de talento</h3>
-                                <p class="lato">Identificamos zonas con mayor afinidad al perfil y cercanía al centro de
-                                    trabajo, lo
-                                    que <b>mejora la asistencia y permanencia</b>.</p>
-                                <img alt="dots"
-                                    src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/circle.svg"
-                                    class="img-dots" />
 
-                            </div>
-                        </li>
                     </ul>
                 </div>
 
@@ -2453,7 +2508,7 @@
                         empresa</h4>
                     <div class="cta-btns">
                         <a href="#contacto" class="btn btn-primary">Contáctanos</a>
-                        <a href="https://www.google.com" class="btn btn-primary">Llámanos</a>
+                        <a href="tel:+5215512345678" class="btn btn-primary">Llámanos</a>
                     </div>
                 </div>
             </div>
@@ -2469,7 +2524,8 @@
 
             <div class="form-content">
                 <p class="contact-title hide-mobile flexo">
-                    Déjanos tus datos y te brindamos una asesoría de tus vacantes <span class="text-red"> sin costo.
+                    Déjanos tus datos y te brindamos una asesoría de tus vacantes <span class="text-red flexo"> sin
+                        costo.
                     </span>
                 </p>
                 <p class="contact-title hide-tablet hide-pc flexo">
@@ -2506,6 +2562,27 @@
 
             <div class="accordion">
                 <div class="accordion__item">
+                    <div class="accordion__header" data-toggle="#faq0">
+                        <div class="accordion__header-content">
+                            <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/arrow.png"
+                                class="arrow-toggle hide-mobile">
+                            <p class="flexo">
+                                ¿Qué tan rápido puedo tener a mi personal operativo en alto volumen?
+                            </p>
+                        </div>
+
+                        <button class="btn-toggle">
+                            +
+                        </button>
+                    </div>
+                    <div class="accordion__content" id="faq0">
+                        <p class="lato">
+                            Una vez que se cuenta con la definición del perfil ideal, comienzas a recibir candidatos en
+                            10 días.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion__item">
                     <div class="accordion__header" data-toggle="#faq1">
                         <div class="accordion__header-content">
                             <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/arrow.png"
@@ -2521,14 +2598,10 @@
                     </div>
                     <div class="accordion__content" id="faq1">
                         <p class="lato">
-                            Realizamos un perfilamiento por competencias con nuestro Entrevistador Virtual Genera
-
-                            vo(TM).
+                            Realizamos un perfilamiento por competencias con nuestro Entrevistador Virtual Generativo™.
 
                             De manera previa, conocemos su estatus en buró laboral, legal y judicial. Y si lo requieres,
-                            también validamos el comportamiento é
-
-                            co de tus futuros empleados.
+                            también validamos el comportamiento ético de tus futuros empleados.
                         </p>
                     </div>
                 </div>
@@ -2639,9 +2712,9 @@
                 </span>
             </p>
 
-            <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Captura%20de%20pantalla%202025-05-16%20a%20la(s)%2014.14.11.png"
+            <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Grupo%20298.png"
                 alt="Certificaciones" class="certifications-image hide-mobile">
-            <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Captura%20de%20pantalla%202025-05-16%20a%20la(s)%2015.59.22.png"
+            <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Grupo%20299.png"
                 alt="Certificaciones" class="certifications-image hide-pc hide-tablet">
         </section>
 
