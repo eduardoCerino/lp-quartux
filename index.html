@@ -1631,7 +1631,10 @@
 
         <!-- -------- Header -------- -->
         <header class="menu black">
-            <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Recurso%203%20(2).png" alt="Logo" />
+            <a href="#">
+                <img src="https://7462595.fs1.hubspotusercontent-na1.net/hubfs/7462595/Recurso%203%20(2).png"
+                    alt="Logo" />
+            </a>
             <div class="menu_links">
                 <a href="#soluciones">Soluciones</a>
                 <a href="#beneficios">Beneficios</a>
@@ -2151,6 +2154,15 @@
                         button.addEventListener("click", () => {
                             const key = button.dataset.solution;
                             const parent = button.closest(".flip-card");
+
+                            // Cerrar cualquier otra tarjeta que esté girada
+                            document.querySelectorAll(".flip-card.show-back").forEach(card => {
+                                if (card !== parent) {
+                                    card.classList.remove("show-back");
+                                }
+                            });
+
+                            // Actualizar contenido del reverso
                             const back = parent.querySelector(".flip-card-back");
                             const icon = back.querySelector(".icon-soluciones");
                             const title = back.querySelector("h4");
@@ -2161,6 +2173,7 @@
                             title.textContent = solution.title;
                             desc.textContent = solution.description;
 
+                            // Mostrar reverso de la tarjeta actual
                             parent.classList.add("show-back");
                         });
                     });
@@ -2173,8 +2186,20 @@
                             card.classList.remove("show-back");
                         });
                     });
+
+                    // Cerrar tarjeta si se hace clic fuera
+                    document.addEventListener("click", (e) => {
+                        document.querySelectorAll(".flip-card.show-back").forEach(card => {
+                            if (!card.contains(e.target) && !e.target.classList.contains("solution-btn")) {
+                                card.classList.remove("show-back");
+                            }
+                        });
+                    });
                 });
             </script>
+
+
+
 
             <!-- Code for the hide/show card in mobile -->
             <script>
@@ -2345,7 +2370,7 @@
                             </div>
                         </li>
                         <li class="splide__slide">
-                            <div class="benefits-item" style="background-color: #F4F4F4;">
+                            <div class="benefits-item" style="background-color: #EAEAEA;">
                                 <h3 class="flexo">Reducción de costos de reclutamiento masivo hasta en 35%</h3>
                                 <p class="lato">La optimización de procesos con herramientas tecnológicas <b>reduce
                                         gastos en
@@ -2370,7 +2395,7 @@
                             </div>
                         </li>
                         <li class="splide__slide">
-                            <div class="benefits-item" style="background-color: #F4F4F4;">
+                            <div class="benefits-item" style="background-color: #EAEAEA;">
                                 <h3 class="flexo">Mapas de calor para ubicación estratégica de talento</h3>
                                 <p class="lato">Identificamos zonas con mayor afinidad al perfil y cercanía al centro de
                                     trabajo, lo
@@ -2383,7 +2408,7 @@
                         </li>
 
                         <li class="splide__slide">
-                            <div class="benefits-item" style="background-color: #F4F4F4;">
+                            <div class="benefits-item" style="background-color: #EAEAEA;">
                                 <h3 class="flexo">Simuladores virtuales con +95% de efectividad formativa </h3>
                                 <p class="lato">Entrena a tu equipo con <b>nuestro Simulador Virtual Generativo™ </b>,
                                     con escenarios reales, sin riesgos para la operación, y con métricas que garantizan
@@ -2398,7 +2423,7 @@
                         </li>
 
                         <li class="splide__slide">
-                            <div class="benefits-item" style="background-color: #F4F4F4;">
+                            <div class="benefits-item" style="background-color: #EAEAEA;">
                                 <h3 class="flexo">
                                     Capacitación automatizada desde el día uno
                                 </h3>
@@ -2416,12 +2441,14 @@
                         </li>
 
                         <li class="splide__slide">
-                            <div class="benefits-item" style="background-color: #F4F4F4;">
+                            <div class="benefits-item" style="background-color: #EAEAEA;">
                                 <h3 class="flexo">
                                     Da voz y atención a tus empleados, mejorando su pertenencia
                                 </h3>
                                 <p class="lato">
-                                    Con <b> HR Connect™</b>, el <b> omnicanal de comunicación con el colaborador </b>, brinda atención permanente; resuelve dudas y situaciones generadas en tu operación, obtén adicional, información para tomar decisiones preventivas.
+                                    Con <b> HR Connect™</b>, el <b> omnicanal de comunicación con el colaborador </b>,
+                                    brinda atención permanente; resuelve dudas y situaciones generadas en tu operación,
+                                    obtén adicional, información para tomar decisiones preventivas.
                                 </p>
 
                                 <img alt="dots"
@@ -2431,13 +2458,15 @@
                             </div>
                         </li>
                         <li class="splide__slide">
-                            <div class="benefits-item" style="background-color: #F4F4F4;">
+                            <div class="benefits-item" style="background-color: #EAEAEA;">
                                 <h3 class="flexo">
                                     Mide e incrementa tus promotores
 
                                 </h3>
                                 <p class="lato">
-                                    <b>>HR Insigth™ </b>, es nuestra solución avanzada que te permite <b> evaluar de manera efectiva el ambiente de trabajo </b>, identificar áreas de mejora y promover una cultura organizacional positiva.
+                                    <b>HR Insigth™ </b>, es nuestra solución avanzada que te permite <b> evaluar de
+                                        manera efectiva el ambiente de trabajo </b>, identificar áreas de mejora y
+                                    promover una cultura organizacional positiva.
                                 </p>
 
                                 <img alt="dots"
@@ -2622,9 +2651,7 @@
                     <div class="accordion__content" id="faq2">
                         <p class="lato">
                             Somos proveedores de Servicios Especializados REPSE, por tanto te apoyamos para cumplir con
-                            la norma
-
-                            va correspondiente.
+                            la normativa correspondiente.
                         </p>
                     </div>
                 </div>
@@ -2645,7 +2672,7 @@
                     <div class="accordion__content" id="faq3">
                         <p class="lato">
                             Podemos adecuarnos, te brindamos la opción de realizar el entrenamiento a través de Penta
-                            Academy(TM) nuestro LMS, o bien, nuestro equipo de formadores certificados pueden diseñar e
+                            Academy™ nuestro LMS, o bien, nuestro equipo de formadores certificados pueden diseñar e
                             impartir los cursos en sitio.
                         </p>
                     </div>
